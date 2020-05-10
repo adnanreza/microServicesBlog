@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import CommentCreate from './CommentCreate';
 export default () => {
   const [posts, setPosts] = useState({});
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
   const fetchPosts = async () => {
     const res = await axios.get('http://localhost:4000/posts');
@@ -25,9 +21,15 @@ export default () => {
         <div className='card-body'>
           <h3>{post.title}</h3>
         </div>
+
+        <CommentCreate postId={post.id} />
       </div>
     );
   });
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
   return (
     <div className='d-flex flex-row flex-wrap justify-content-between'>
