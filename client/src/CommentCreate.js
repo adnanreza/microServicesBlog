@@ -13,7 +13,7 @@ export default ({ postId }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
           <label>New Comment</label>
@@ -22,6 +22,7 @@ export default ({ postId }) => {
             onChange={(e) => setContent(e.target.value)}
             className='form-control'
           />
+
           <button className='btn btn-primary'>Submit</button>
         </div>
       </form>
